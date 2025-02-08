@@ -1,0 +1,58 @@
+Using HashMap:
+import java.util.HashMap;
+
+
+public class sockMerchant {
+	public static int sockPairs(int[]socks) {
+		HashMap<Integer, Integer>sockCount=new HashMap<>();
+		int pairs=0;
+		
+		for(int sock:socks) {
+			sockCount.put(sock,sockCount.getOrDefault(sock,0)+1);
+		}
+		
+		for(int count:sockCount.values()) {
+			pairs+=count/2;
+		}
+		return pairs;
+		}
+	
+
+
+	public static void main(String[] args) {
+		int[]socks= {10,20,20,10,10,10,30,50};
+		System.out.println(sockPairs(socks));
+		// TODO Auto-generated method stub
+
+	}
+
+}
+Output: 3
+
+Without using HsahMap:
+import java.util.Arrays;
+
+public class SalesByMatch {
+	public static int sockPairs(int[] socks) {
+        Arrays.sort(socks);
+        int pairs = 0;
+
+        for (int i = 0; i < socks.length - 1; i++) {
+            if (socks[i] == socks[i + 1]) {
+                pairs++;  
+                i++;      
+            }
+        }
+
+        return pairs;
+    }
+
+	public static void main(String[] args) {
+		 int[] socks = {10, 20, 20, 10, 10, 30, 50, 10, 20};
+	        System.out.println(sockPairs(socks));
+
+	}
+
+}
+output: 3
+
